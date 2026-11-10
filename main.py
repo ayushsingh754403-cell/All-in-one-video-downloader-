@@ -11,8 +11,8 @@ def update_ytdlp():
         pass
 
 update_ytdlp()
-
-TOKEN = os.getenv('TOKEN')
+TOKEN = os.getenv('TOKEN') 
+bot = telebot.TeleBot(TOKEN).
 
 telebot.apihelper.CONNECT_TIMEOUT = 300
 telebot.apihelper.READ_TIMEOUT = 300
