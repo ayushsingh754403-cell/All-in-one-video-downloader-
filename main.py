@@ -12,8 +12,7 @@ def update_ytdlp():
 
 update_ytdlp()
 
-TOKEN = '8749124006:AAFbyc9TAbKt8-O3XFWgAUppsMYBUFhn7eI'
-bot = telebot.TeleBot(TOKEN)
+TOKEN = os.getenv('TOKEN')
 
 telebot.apihelper.CONNECT_TIMEOUT = 300
 telebot.apihelper.READ_TIMEOUT = 300
