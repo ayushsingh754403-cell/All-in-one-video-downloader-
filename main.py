@@ -40,8 +40,8 @@ def handle_link(message):
     
     markup = InlineKeyboardMarkup()
     markup.add(
-        InlineKeyboardButton('Download Video', callback_data='dl_video'),
-        InlineKeyboardButton('Download MP3 (Audio)', callback_data='dl_audio')
+        InlineKeyboardButton('📽️Download Video', callback_data='dl_video'),
+        InlineKeyboardButton('🎵Download MP3 (Audio)', callback_data='dl_audio')
     )
     bot.send_message(chat_id, "What would you like to download?", reply_markup=markup)
 
@@ -56,7 +56,7 @@ def handle_callback(call):
     chat_id = call.message.chat.id
     
     if call.data == 'dl_video':
-        bot.send_message(chat_id, "Downloading video...")
+        bot.send_message(chat_id, "📤Downloading video...")
         ydl_opts = {
             'format': 'bestvideo[height<=1000][filesize<200M]+bestaudio/best/best',
             'outtmpl': os.path.join(DOWNLOAD_DIR, '%(title)s.%(ext)s'),
@@ -75,7 +75,7 @@ def handle_callback(call):
             bot.send_message(chat_id, f"Error: {e}")
 
     elif call.data == 'dl_audio':
-        bot.send_message(chat_id, "Downloading audio...")
+        bot.send_message(chat_id, "📤Downloading audio...")
         ydl_opts = {
             'format': 'bestaudio/best',
             'outtmpl': os.path.join(DOWNLOAD_DIR, '%(title)s.%(ext)s'),
@@ -94,7 +94,7 @@ def handle_callback(call):
             base, _ = os.path.splitext(filename)
             audio_file = base + '.mp3'
             
-            bot.send_message(chat_id, "Uploading audio by ayush")
+            bot.send_message(chat_id, "📤Uploading audio by ayush")
             with open(audio_file, 'rb') as audio:
                 bot.send_audio(chat_id, audio)
             os.remove(audio_file)
